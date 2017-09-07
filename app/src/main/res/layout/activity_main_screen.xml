@@ -50,10 +50,29 @@
         android:id="@+id/holeCounterUpID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/counterUpID"
-        android:layout_alignEnd="@+id/counterUpID"
-        android:layout_alignRight="@+id/counterUpID"
         android:text="NEXT_HOLE"
+        android:layout_above="@+id/counterUpID"
+        android:layout_toLeftOf="@+id/button"
+        android:layout_toStartOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_above="@+id/counterUpID"
+        android:layout_toRightOf="@+id/scoreCountID"
+        android:layout_toEndOf="@+id/scoreCountID" />
+
+    <TextView
+        android:id="@+id/numberOfHoleID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textSize="25dp"
+        android:text="1" />
 </RelativeLayout>
 
 

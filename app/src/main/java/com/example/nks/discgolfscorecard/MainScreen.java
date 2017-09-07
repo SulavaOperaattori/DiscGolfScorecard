@@ -7,13 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class MainScreen extends AppCompatActivity {
 
     Button counterUp;
     Button resetBtn;
     Button holeCounterUp;
     TextView scoreCount;
-    int numberOfHoles = 9;
+    TextView numberOfHole;
 
 
     @Override
@@ -25,6 +27,8 @@ public class MainScreen extends AppCompatActivity {
         counterUp = (Button) findViewById(R.id.counterUpID);
         resetBtn = (Button) findViewById(R.id.resetBtnID);
         scoreCount = (TextView) findViewById(R.id.scoreCountID);
+        numberOfHole = (TextView) findViewById(R.id.numberOfHoleID);
+
         counterUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,10 +44,14 @@ public class MainScreen extends AppCompatActivity {
                 scoreCount.setText("0");
             }
         });
+
         holeCounterUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String holeValue = numberOfHole.getText().toString();
+                int holeNumberInteger = Integer.parseInt(holeValue);
+                holeNumberInteger++;
+                numberOfHole.setText("Hole" + Integer.toString(holeNumberInteger));
             }
         });
     }
