@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -11,69 +11,131 @@
         android:orientation="vertical">
 
 
+    <TextView
+            android:id="@+id/holeString"
+            android:layout_width="71dp"
+            android:layout_height="33dp"
+            android:layout_alignBottom="@+id/numberOfHoleID"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/numberOfHoleID"
+            android:layout_toStartOf="@+id/numberOfHoleID"
+            android:layout_weight="0.05"
+            android:text="Hole:"
+            android:textSize="25dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/numberOfHoleID"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        android:textSize="25dp"
+        android:text="1"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/nextHole"
+        android:layout_toStartOf="@+id/nextHole"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/holeString"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
+
         <TextView
         android:id="@+id/scoreCountID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
         android:text="0"
-
-        android:textSize="100dp"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="16dp"
-            android:layout_marginTop="19dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <Button
-            android:id="@+id/counterUpID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="COUNTER"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="87dp"
-            android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/resetBtnID"
-            android:layout_alignStart="@+id/resetBtnID" />
+            android:textSize="100dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
         <Button
+        android:id="@+id/counterUpID"
+        android:layout_width="89dp"
+        android:layout_height="49dp"
+        android:layout_alignLeft="@+id/resetBtnID"
+        android:layout_alignStart="@+id/resetBtnID"
+        android:layout_centerVertical="true"
+        android:text="COUNTER"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="100dp"
+            app:layout_constraintTop_toBottomOf="@+id/scoreCountID"
+            app:layout_constraintHorizontal_bias="0.501" />
+
+    <Button
         android:id="@+id/resetBtnID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/scoreCountID"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="0.21"
         android:text="RESET"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="181dp"
-            android:layout_below="@+id/scoreCountID"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="-39dp"
+        app:layout_constraintTop_toBottomOf="@+id/counterUpID" />
 
     <Button
-        android:id="@+id/holeCounterUpID"
+        android:id="@+id/nextHole"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT_HOLE"
         android:layout_above="@+id/counterUpID"
-        android:layout_toLeftOf="@+id/button"
-        android:layout_toStartOf="@+id/button" />
+        android:layout_toLeftOf="@+id/lastHole"
+        android:layout_toStartOf="@+id/lastHole"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/lastHole"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/lastHole"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="LAST_HOLE"
         android:layout_above="@+id/counterUpID"
         android:layout_toRightOf="@+id/scoreCountID"
-        android:layout_toEndOf="@+id/scoreCountID" />
+        android:layout_toEndOf="@+id/scoreCountID"
+        android:layout_marginLeft="142dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/resetBtnID" />
 
-    <TextView
-        android:id="@+id/numberOfHoleID"
+    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:textSize="25dp"
-        android:text="1" />
-</RelativeLayout>
+        android:id="@+id/guideline"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="vertical" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline2"
+        app:layout_constraintGuide_begin="164dp"
+        android:orientation="vertical" />
+
+
+</android.support.constraint.ConstraintLayout>
 
 
 

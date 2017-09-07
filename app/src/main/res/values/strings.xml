@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Disc Golf Scorecard</string>
+    <string name="hole">Hole: </string>
 </resources>
