@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.nks.discgolfscorecard.MainScreen"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+
+        <TextView
+        android:id="@+id/scoreCountID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+
+        android:textSize="100dp"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="16dp"
+            android:layout_marginTop="19dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/counterUpID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COUNTER"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="87dp"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/resetBtnID"
+            android:layout_alignStart="@+id/resetBtnID" />
+
+        <Button
+        android:id="@+id/resetBtnID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESET"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="181dp"
+            android:layout_below="@+id/scoreCountID"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp" />
+
+    <Button
+        android:id="@+id/holeCounterUpID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/counterUpID"
+        android:layout_alignEnd="@+id/counterUpID"
+        android:layout_alignRight="@+id/counterUpID"
+        android:text="NEXT_HOLE"
+</RelativeLayout>
+
+
+
