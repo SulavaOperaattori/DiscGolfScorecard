@@ -9,17 +9,21 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import static com.example.nks.discgolfscorecard.R.id.Par;
 import static com.example.nks.discgolfscorecard.R.id.lastHole;
 
 public class MainScreen extends Activity implements View.OnClickListener {
 
    TextView scoreCount;
     TextView numberOfHole;
+    TextView ParValue;
     private Button nextHole;
     private Button lastHole;
     private Button counter;
     private Button reset;
-    int holeNumberInteger = 0;
+    int hole = 1;
+    int holePar = 3;
+    int holeLenght = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,36 +42,49 @@ public class MainScreen extends Activity implements View.OnClickListener {
         numberOfHole = (TextView) findViewById(R.id.numberOfHoleID);
         Button lastHole = (Button) findViewById(R.id.nextHole);
         lastHole.setOnClickListener(this);
+        ParValue = (TextView) findViewById(R.id.ParValue);
 
     }
             public void onClick(View view) {
                 switch (view.getId()){
                     case R.id.counterUpID:
-                        String scoreValue = scoreCount.getText().toString();
-                        int intScoreValue = Integer.parseInt(scoreValue);
-                        intScoreValue++;
-                        scoreCount.setText(String.valueOf(intScoreValue));
+                        String score = scoreCount.getText().toString();
+                        int holePar = Integer.parseInt(score);
+                        holePar++;
+                        scoreCount.setText(String.valueOf(holePar));
                         break;
                     case R.id.resetBtnID:
                         scoreCount.setText("0");
                         break;
 
                     case R.id.nextHole:
-                        if (holeNumberInteger < 18) {
-                            holeNumberInteger++;
-                            numberOfHole.setText(String.valueOf(holeNumberInteger));
-                        }
+                        if (hole < 18) {
+                            hole++;
+                            numberOfHole.setText(String.valueOf(hole));
+                            holePar = 3;
+                            scoreCount.setText(String.valueOf(holePar));
+                            ParValue.setText(String.valueOf(holePar));
                             break;
+                        }
+
                     case R.id.lastHole:
-                        if (holeNumberInteger > 0) {
-                            holeNumberInteger--;
-                            numberOfHole.setText(String.valueOf(holeNumberInteger));
-                        }
+                        if (hole > 0) {
+                            hole--;
+                            numberOfHole.setText(String.valueOf(hole));
+                            holePar = 3;
+                            scoreCount.setText(String.valueOf(holePar));
+                            ParValue.setText(String.valueOf(holePar));
                             break;
+                        }
+
                 }
             }
         }
 
+/*public CourseBuilder(int holes, int par, int distance) {
+    holes = hole;
+    par = holePar;
+    distance = holeLenght;
 
-
-
+}
+*/
