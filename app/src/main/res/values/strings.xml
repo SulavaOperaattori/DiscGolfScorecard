@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Disc Golf Scorecard</string>
     <string name="hole">Hole: </string>
+    <string name="title_activity_course_builder">CourseBuilderActivity</string>
 </resources>

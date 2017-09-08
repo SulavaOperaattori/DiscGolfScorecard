@@ -1,48 +1,38 @@
 package com.example.nks.discgolfscorecard;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import static com.example.nks.discgolfscorecard.R.id.Par;
-import static com.example.nks.discgolfscorecard.R.id.lastHole;
-
 public class MainScreen extends Activity implements View.OnClickListener {
 
-   TextView scoreCount;
-    TextView numberOfHole;
-    TextView ParValue;
-    private Button nextHole;
-    private Button lastHole;
-    private Button counter;
-    private Button reset;
+   TextView scoreCount, numberOfHole, ParValue;
+    private Button counter, reset, lastHole, nextHole, courseAdder;
     int hole = 1;
-    int holePar = 3;
-    int holeLenght = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        nextHole = (Button) findViewById(R.id.nextHole);
+        nextHole = findViewById(R.id.nextHole);
         nextHole.setOnClickListener(MainScreen.this);
-        lastHole = (Button) findViewById(R.id.lastHole);
+        lastHole = findViewById(R.id.lastHole);
         lastHole.setOnClickListener(MainScreen.this);
-        counter = (Button) findViewById(R.id.counterUpID);
+        counter = findViewById(R.id.counterUpID);
         counter.setOnClickListener(MainScreen.this);
-        reset = (Button) findViewById(R.id.resetBtnID);
+        reset = findViewById(R.id.resetBtnID);
+        courseAdder = findViewById(R.id.courseAdder);
+        courseAdder.setOnClickListener(MainScreen.this);
         reset.setOnClickListener(MainScreen.this);
-        scoreCount = (TextView) findViewById(R.id.scoreCountID);
-        numberOfHole = (TextView) findViewById(R.id.numberOfHoleID);
-        Button lastHole = (Button) findViewById(R.id.nextHole);
+        scoreCount = findViewById(R.id.scoreCountID);
+        numberOfHole = findViewById(R.id.numberOfHoleID);
+        Button lastHole = findViewById(R.id.nextHole);
         lastHole.setOnClickListener(this);
-        ParValue = (TextView) findViewById(R.id.ParValue);
+        ParValue = findViewById(R.id.ParValue);
 
     }
             public void onClick(View view) {
@@ -76,15 +66,11 @@ public class MainScreen extends Activity implements View.OnClickListener {
                             ParValue.setText(String.valueOf(holePar));
                             break;
                         }
-
+                    case R.id.courseAdder:
+                        Intent CourseBuilder = new Intent(MainScreen.this, CourseBuilderActivity.class);
+                        startActivity(CourseBuilder);
                 }
             }
-        }
-
-/*public CourseBuilder(int holes, int par, int distance) {
-    holes = hole;
-    par = holePar;
-    distance = holeLenght;
-
 }
-*/
+
+
