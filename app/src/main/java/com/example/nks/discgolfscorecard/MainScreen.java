@@ -1,20 +1,19 @@
 package com.example.nks.discgolfscorecard;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import android.Manifest;
-import android.location.Geocoder;
-import android.location.Address;
-import android.location.Location;
-import android.support.v4.app.ActivityCompat;
-import android.content.pm.PackageManager;
-import android.util.Log;
-import android.net.Uri;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -25,7 +24,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class MainScreen extends Activity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MainScreen extends Activity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
     TextView scoreCount, numberOfHole, ParValue, locationText;
     private Button counter, reset, lastHole, nextHole, courseAdder;
@@ -85,7 +84,7 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
     protected void onPause() {
         super.onPause();
         if (mGoogleApiClient.isConnected()) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, (com.google.android.gms.location.LocationListener) this);
+            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             mGoogleApiClient.disconnect();
         }
     }
@@ -135,7 +134,7 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
         } else {
             Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
             if (location == null) {
-                LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, (com.google.android.gms.location.LocationListener) this);
+                LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
             } else {
                 newLocation(location);
             }
@@ -175,7 +174,16 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
             locationText.setText("error");
             e.printStackTrace();
         }
+
     }
+
+    public void onLocationChanged(Location location) {
+
+    }
+
+
+
 }
+
 
 
