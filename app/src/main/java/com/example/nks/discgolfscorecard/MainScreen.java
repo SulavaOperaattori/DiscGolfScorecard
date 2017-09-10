@@ -34,6 +34,8 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
     public static final String TAG = MainScreen.class.getSimpleName();
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,6 +125,7 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
             case R.id.courseAdder:
                 Intent CourseBuilder = new Intent(MainScreen.this, CourseBuilderActivity.class);
                 startActivity(CourseBuilder);
+
         }
     }
 
