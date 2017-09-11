@@ -9,6 +9,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
@@ -92,15 +93,19 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
     }
 
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
+            default: break;
+
             case R.id.counterUpID:
                 String score = scoreCount.getText().toString();
                 int holePar = Integer.parseInt(score);
                 holePar++;
                 scoreCount.setText(String.valueOf(holePar));
                 break;
+
             case R.id.resetBtnID:
                 scoreCount.setText("0");
+                hole = 0;
                 break;
 
             case R.id.nextHole:
@@ -122,10 +127,10 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
                     ParValue.setText(String.valueOf(holePar));
                     break;
                 }
+
             case R.id.courseAdder:
                 Intent CourseBuilder = new Intent(MainScreen.this, CourseBuilderActivity.class);
                 startActivity(CourseBuilder);
-
         }
     }
 
@@ -145,12 +150,10 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
     }
 
     @Override
-    public void onConnectionSuspended(int i) {
-
-    }
+    public void onConnectionSuspended(int i) {}
 
     @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         if (connectionResult.hasResolution()) {
             try {
                 // Start an Activity that tries to resolve the error
@@ -181,7 +184,7 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
     }
 
     public void onLocationChanged(Location location) {
-
+        newLocation(location);
     }
 
 
