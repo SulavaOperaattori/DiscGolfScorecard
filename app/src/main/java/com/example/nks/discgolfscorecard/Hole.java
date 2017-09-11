@@ -1,29 +1,29 @@
 package com.example.nks.discgolfscorecard;
 
 public class Hole {
-    private int par;
-    private int hole_number;
-    private int result;
+    private int par_;
+    private int hole_number_;
+    private int result_;
 
-    public Hole(int par_p, int hole_number_p) {
-        par = par_p;
-        hole_number = hole_number_p;
-        result = 0;
+    public Hole(int par, int hole_number) {
+        par_ = par;
+        hole_number_ = hole_number;
+        result_ = 0;
     }
 
     public void increaseResult() {
-        result++;
+        result_++;
     }
 
     public void setResult(int score) {
-        result = score;
+        result_ = score;
     }
 
     public int getPar() {
-        return par;
+        return par_;
     }
 
     public int getHoleNumber() {
-        return hole_number;
+        return hole_number_;
     }
 }

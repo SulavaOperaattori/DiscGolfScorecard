@@ -2,56 +2,56 @@ package com.example.nks.discgolfscorecard;
 
 import java.util.ArrayList;
 
-import static com.example.nks.discgolfscorecard.R.string.hole;
-
 public class Course {
-    private double latitude;
-    private double longitude;
-    private String city;
-    private int holes;
-    private ArrayList<Hole> course;
+    private double latitude_;
+    private double longitude_;
+    private String city_;
+    private int holes_;
+    private ArrayList<Hole> course_;
 
     public Course(int holes) {
-        course = new ArrayList<Hole>();
-        latitude = 0;
-        longitude = 0;
-        city = null;
+        course_ = new ArrayList<Hole>();
+        latitude_ = 0;
+        longitude_ = 0;
+        city_ = null;
+        holes_ = holes;
     }
 
     public void addHole(Hole hole) {
-        course.add(hole);
+        course_.add(hole);
+        holes_++;
     }
 
     public double getLatitude() {
-        return latitude;
+        return latitude_;
     }
 
     public double getLongitude() {
-        return longitude;
+        return longitude_;
     }
 
     public Hole getHole(int hole_number) {
-        return course.get(hole_number);
+        return course_.get(hole_number);
     }
 
     public ArrayList<Hole> getCourse() {
-        return course;
+        return course_;
     }
 
     public int getHoles() {
-        return holes;
+        return holes_;
     }
 
-    public void setCoordinates(double latitude_p, double longitude_p) {
-        latitude = latitude_p;
-        longitude = longitude_p;
+    public void setCoordinates(double latitude, double longitude) {
+        latitude_ = latitude;
+        longitude_ = longitude;
     }
 
     public void setCity(String cityname) {
-        city = cityname;
+        city_ = cityname;
     }
 
-    public double getDistanceToCurrentLocation(double latitude_p, double longitude_p) {
-        return Math.sqrt((Math.abs(Math.pow(latitude-latitude_p,2)+Math.pow(longitude-longitude_p,2))));
+    public double getDistanceToCurrentLocation(double latitude, double longitude) {
+        return Math.sqrt((Math.abs(Math.pow(latitude_ -latitude,2)+Math.pow(longitude_ -longitude,2))));
     }
 }
