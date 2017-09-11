@@ -115,22 +115,23 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
                     holePar = 3;
                     scoreCount.setText(String.valueOf(holePar));
                     ParValue.setText(String.valueOf(holePar));
-                    break;
                 }
+                break;
 
             case R.id.lastHole:
-                if (hole > 0) {
+                if (hole > 1) {
                     hole--;
                     numberOfHole.setText(String.valueOf(hole));
                     holePar = 3;
                     scoreCount.setText(String.valueOf(holePar));
                     ParValue.setText(String.valueOf(holePar));
-                    break;
                 }
+                break;
 
             case R.id.courseAdder:
                 Intent CourseBuilder = new Intent(MainScreen.this, CourseBuilderActivity.class);
                 startActivity(CourseBuilder);
+                break;
         }
     }
 
