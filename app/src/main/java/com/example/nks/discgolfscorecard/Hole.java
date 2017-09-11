@@ -12,18 +12,22 @@ public class Hole {
     }
 
     public void increaseResult() {
+
         result_++;
     }
 
     public void setResult(int score) {
+
         result_ = score;
     }
 
     public int getPar() {
+
         return par_;
     }
 
     public int getHoleNumber() {
+
         return hole_number_;
     }
 }
