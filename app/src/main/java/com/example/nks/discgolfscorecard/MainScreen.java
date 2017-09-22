@@ -93,6 +93,10 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
     }
 
     public void onClick(View view) {
+        /* Switch-case for different buttons, counterUpID increments counter, resetbtn resets it, nexthole chooses nexthole, lasthole chooses lasthole
+            courseAdder creates a new Intent and executes the function CourseBuilderActivity which is responsible of creating the course
+         */
+
         switch (view.getId()) {
             default: break;
 
@@ -135,6 +139,7 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
         }
     }
 
+    //Location stuff here
     @Override
     public void onConnected(Bundle bundle) {
         // Check for locational permissions

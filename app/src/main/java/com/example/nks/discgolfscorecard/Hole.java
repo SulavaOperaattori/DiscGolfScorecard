@@ -4,6 +4,7 @@ public class Hole {
     private int par_;
     private int hole_number_;
     private int result_;
+    private int distance_;
 
     public Hole(int par, int hole_number) {
         par_ = par;
@@ -29,5 +30,11 @@ public class Hole {
     public int getHoleNumber() {
 
         return hole_number_;
+    }
+    public void setPar(int par) {
+        par_ = par;
+    }
+    public void setDistance(int distance) {
+        distance_ = distance;
     }
 }
