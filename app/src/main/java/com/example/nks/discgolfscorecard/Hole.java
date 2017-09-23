@@ -6,6 +6,10 @@ public class Hole {
     private int result_;
     private int distance_;
 
+    public Hole(int hole_number) {
+        hole_number_ = hole_number;
+    }
+
     public Hole(int par, int hole_number) {
         par_ = par;
         hole_number_ = hole_number;

@@ -23,10 +23,12 @@ public class Course {
     }
 
     public double getLatitude() {
+
         return latitude_;
     }
 
     public double getLongitude() {
+
         return longitude_;
     }
 
@@ -35,10 +37,12 @@ public class Course {
     }
 
     public ArrayList<Hole> getCourse() {
+
         return course_;
     }
 
     public int getHoles() {
+
         return holes_;
     }
 
@@ -48,6 +52,7 @@ public class Course {
     }
 
     public void setCity(String cityname) {
+
         city_ = cityname;
     }
 
