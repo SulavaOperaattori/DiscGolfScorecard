@@ -20,7 +20,6 @@ public class CourseDialog extends AppCompatDialogFragment {
     int holeSlider = 0;
     TextView cTextview;
     Course newCourse;
-    Hole holes[];
 
     public CourseDialog() {
         // Empty constructor required for DialogFragment
@@ -80,11 +79,7 @@ public class CourseDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 for ( int i = 0 ; i <= holeSlider ; i++ ) {
-
-                    holes[holeSlider] = new Hole(3, holeSlider);
-                    newCourse.addHole(holes[holeSlider]);
-
-
+                    newCourse.addHole(new Hole(3,holeSlider));
                 }
             }
         });
@@ -100,9 +95,7 @@ public class CourseDialog extends AppCompatDialogFragment {
         return alertDialogBuilder.create();
 
     }
-
-
-        }
+}
 
 
 
