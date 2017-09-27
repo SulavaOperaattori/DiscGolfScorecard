@@ -95,6 +95,8 @@ public class CourseDialog extends AppCompatDialogFragment {
         return alertDialogBuilder.create();
 
     }
+
+
 }
 
 
