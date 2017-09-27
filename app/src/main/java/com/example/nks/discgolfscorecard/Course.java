@@ -6,29 +6,24 @@ public class Course {
     private double latitude_;
     private double longitude_;
     private String city_;
-    private int holes_;
     private ArrayList<Hole> course_;
 
-    public Course(int holes) {
+    public Course() {
         course_ = new ArrayList<Hole>();
         latitude_ = 0;
         longitude_ = 0;
         city_ = null;
-        holes_ = holes;
     }
 
     public void addHole(Hole hole) {
         course_.add(hole);
-        holes_++;
     }
 
     public double getLatitude() {
-
         return latitude_;
     }
 
     public double getLongitude() {
-
         return longitude_;
     }
 
@@ -37,13 +32,11 @@ public class Course {
     }
 
     public ArrayList<Hole> getCourse() {
-
         return course_;
     }
 
     public int getHoles() {
-
-        return holes_;
+        return course_.size();
     }
 
     public void setCoordinates(double latitude, double longitude) {
@@ -52,11 +45,10 @@ public class Course {
     }
 
     public void setCity(String cityname) {
-
         city_ = cityname;
     }
 
     public double getDistanceToCurrentLocation(double latitude, double longitude) {
-        return Math.sqrt((Math.abs(Math.pow(latitude_ -latitude,2)+Math.pow(longitude_ -longitude,2))));
+        return Math.sqrt(Math.pow(latitude_ -latitude,2)+Math.pow(longitude_ -longitude,2));
     }
 }

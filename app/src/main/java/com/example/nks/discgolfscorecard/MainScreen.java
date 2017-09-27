@@ -192,9 +192,6 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
     public void onLocationChanged(Location location) {
         newLocation(location);
     }
-
-
-
 }
 
 
