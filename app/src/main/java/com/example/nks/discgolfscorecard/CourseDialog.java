@@ -1,5 +1,6 @@
 package com.example.nks.discgolfscorecard;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -16,10 +17,10 @@ import android.widget.Toast;
  */
 
 public class CourseDialog extends AppCompatDialogFragment {
-    SeekBar cSeekbar;
-    int holeSlider = 0;
-    TextView cTextview;
-    Course newCourse;
+    private SeekBar cSeekbar;
+    private int holeSlider = 0;
+    private TextView cTextview;
+    private Course newCourse=new Course();
 
     public CourseDialog() {
         // Empty constructor required for DialogFragment
@@ -51,9 +52,6 @@ public class CourseDialog extends AppCompatDialogFragment {
         cSeekbar = cView.findViewById(R.id.courseDialogSeekbar);
         cTextview = cView.findViewById(R.id.seekBarText);
 
-        newCourse = new Course(holeSlider);
-
-
         cSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
@@ -74,7 +72,7 @@ public class CourseDialog extends AppCompatDialogFragment {
             }
         });
 
-// Set positive and negative buttons
+        // Set positive and negative buttons
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -90,10 +88,17 @@ public class CourseDialog extends AppCompatDialogFragment {
                 dialog.dismiss();
             }
         });
-
-
         return alertDialogBuilder.create();
+    }
 
+    public Course getNewCourse() {
+        return newCourse;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((CourseBuilderActivity) getActivity()).setHoleInfo();
     }
 }
 
