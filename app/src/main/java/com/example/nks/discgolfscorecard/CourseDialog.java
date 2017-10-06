@@ -46,7 +46,7 @@ public class CourseDialog extends AppCompatDialogFragment {
 
         // Build the alertdialog and set it
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         alertDialogBuilder.setView(cView);
 
         cSeekbar = cView.findViewById(R.id.courseDialogSeekbar);
@@ -58,7 +58,6 @@ public class CourseDialog extends AppCompatDialogFragment {
                 // This executes when Seekbar's value is changed aka. moved
                 holeSlider = progress;
                 cTextview.setText(String.valueOf(progress));
-
             }
 
             @Override
@@ -76,9 +75,10 @@ public class CourseDialog extends AppCompatDialogFragment {
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                for ( int i = 0 ; i <= holeSlider ; i++ ) {
+                for (int i=0; i<holeSlider; i++) {
                     newCourse.addHole(new Hole(3,holeSlider));
                 }
+                mCallback.dialog_close(newCourse);
             }
         });
         alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -91,17 +91,23 @@ public class CourseDialog extends AppCompatDialogFragment {
         return alertDialogBuilder.create();
     }
 
-    public Course getNewCourse() {
-        return newCourse;
-    }
+    //INTERFACE AND SHIT
+    private dialogCloseListener mCallback;
 
     @Override
-    public void onResume() {
-        super.onResume();
-        ((CourseBuilderActivity) getActivity()).setHoleInfo();
+    @SuppressWarnings("deprecation")
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mCallback = (dialogCloseListener) activity;
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+        }
     }
 
-
+    public interface dialogCloseListener {
+        void dialog_close(Course course);
+    }
 }
 
 
