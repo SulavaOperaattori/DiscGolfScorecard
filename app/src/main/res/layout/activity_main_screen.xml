@@ -149,15 +149,15 @@
         android:id="@+id/ParValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4"
-        android:textSize="25dp"
-        tools:layout_editor_absoluteY="56dp"
-        app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        android:layout_marginRight="32dp"
-        app:layout_constraintLeft_toRightOf="@+id/Par"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/numberOfHoleID" />
+        android:text="0"
+        android:textSize="25dp"
+        app:layout_constraintLeft_toRightOf="@+id/Par"
+        app:layout_constraintRight_toLeftOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfHoleID"
+        tools:layout_editor_absoluteY="56dp" />
 
     <Button
         android:id="@+id/courseAdder"

@@ -34,8 +34,8 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
     int hole = 1;
     public static final String TAG = MainScreen.class.getSimpleName();
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
-
-
+    private int holePar=0;
+    private int score=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,6 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
         scoreCount = findViewById(R.id.scoreCountID);
         numberOfHole = findViewById(R.id.numberOfHoleID);
         ParValue = findViewById(R.id.ParValue);
-
     }
 
     @Override
@@ -101,34 +100,30 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
             default: break;
 
             case R.id.counterUpID:
-                String score = scoreCount.getText().toString();
-                int holePar = Integer.parseInt(score);
-                holePar++;
-                scoreCount.setText(String.valueOf(holePar));
+                score++;
+                setTextValues();
                 break;
 
             case R.id.resetBtnID:
-                scoreCount.setText("0");
-                hole = 0;
+                holePar = 0;
+                hole = 1;
+                score = 0;
+                setTextValues();
                 break;
 
             case R.id.nextHole:
                 if (hole < 18) {
                     hole++;
-                    numberOfHole.setText(String.valueOf(hole));
                     holePar = 3;
-                    scoreCount.setText(String.valueOf(holePar));
-                    ParValue.setText(String.valueOf(holePar));
+                    setTextValues();
                 }
                 break;
 
             case R.id.lastHole:
                 if (hole > 1) {
                     hole--;
-                    numberOfHole.setText(String.valueOf(hole));
                     holePar = 3;
-                    scoreCount.setText(String.valueOf(holePar));
-                    ParValue.setText(String.valueOf(holePar));
+                    setTextValues();
                 }
                 break;
 
@@ -137,6 +132,12 @@ public class MainScreen extends Activity implements View.OnClickListener, Google
                 startActivity(CourseBuilder);
                 break;
         }
+    }
+
+    private void setTextValues() {
+        numberOfHole.setText(String.valueOf(hole));
+        scoreCount.setText(String.valueOf(score));
+        ParValue.setText(String.valueOf(holePar));
     }
 
     //Location stuff here
